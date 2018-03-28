@@ -65,6 +65,10 @@ class WechatBot(CommandBot, PublishBot):
         self.tulingbot = tulingbot
         self.__group_wx_id = id_group
         self.__op_wx_id = id_op
+        if not id_group:
+            logger.warning('group id is "{}"'.format(id_group))
+        if not id_op:
+            logger.warning('op id is "{}"'.format(id_op))
 
         self.__on_group_msg_handler = None
 
@@ -135,7 +139,7 @@ class WechatBot(CommandBot, PublishBot):
                 is_op = msg.member == self.wx_op
                 try:
                     self._callme_to_process_command_message(msg.text, self.wx_group, self.wx_group.send,
-                                                            from_group=True, from_whom=msg.member, is_op=is_op)
+                                                            from_group=True, talker_in_group=msg.member, is_op=is_op)
                 except:
                     logger.error('error occur in "_callme_to_process_command_message"',
                                  exc_info=True)

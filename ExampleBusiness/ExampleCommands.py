@@ -1,12 +1,14 @@
-import config
 from BotImp.Wechat.WxGroupBot import WechatBot
 from ChatBot.CommandBot import CommandBot
 
-if __name__ == '__main__':
+import config
+cfg = config.TestConfig()
+
+
+def load_commands():
     # Example:
 
-    config = config.TestConfig()
-    wxbot = WechatBot(config.wx_id_group, config.wx_id_op, config.url_wechat_proxy)
+    wxbot = WechatBot(cfg.wx_id_group, cfg.wx_id_op, cfg.url_wechat_proxy)
 
     @wxbot.register_command("Hello", is_private=True)
     def on_request_something(bot: CommandBot, msg, chat, reply,
