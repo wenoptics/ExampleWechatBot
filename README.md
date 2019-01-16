@@ -1,5 +1,5 @@
 # ExampleWechatBot
-Example project of pyWechatBot
+Example project of [pyWechatBot](https://github.com/wenoptics/pyWechatProxyClient)
 
 ## Run
 Simply `python3 main.py`
