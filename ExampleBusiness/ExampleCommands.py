@@ -12,10 +12,10 @@ def load_commands():
 
     @wxbot.register_command("Hello", is_private=True)
     def on_request_something(bot: CommandBot, msg, chat, reply,
-                             SomeOfYourExtraParams="SomeDefaultValue", *args, **kwargs):
+                             some_of_your_extra_params="SomeDefaultValue", *args, **kwargs):
 
         print('in on_request_something() {} {} {}'
-              .format(msg, chat, SomeOfYourExtraParams))
+              .format(msg, chat, some_of_your_extra_params))
 
         # Extract your stuff from request input
         import re
@@ -28,4 +28,4 @@ def load_commands():
         ret_msgs = "Hi {}, welcome".format(something)
         reply(ret_msgs)
 
-    # And send "#Hello wen", it replies "Hi wen, welcome"
+    # And send "#Hello Grayson" on Wechat, it should reply "Hi Grayson, welcome"
